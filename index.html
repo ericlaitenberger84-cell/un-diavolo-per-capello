@@ -292,11 +292,12 @@
       align-items: center;
     }
     .barber-image {
-      aspect-ratio: 4/5; overflow: hidden; position: relative;
+      aspect-ratio: 1/1; overflow: hidden; position: relative;
       border: 1px solid var(--line);
+      background: #0a0a0a;
     }
     .barber-image img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%; height: 100%; object-fit: cover; object-position: center;
       transition: transform .8s;
     }
     .barber-image:hover img { transform: scale(1.05); }
