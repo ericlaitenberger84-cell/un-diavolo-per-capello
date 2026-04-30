@@ -11,45 +11,115 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* === SUB PAGE HERO === */
-    .subhero {
-      min-height: 60vh; padding: 8rem 3rem 4rem;
-      display: flex; align-items: center; position: relative; overflow: hidden;
+    /* === DONNA PAGE === */
+    .donna-page {
+      min-height: 100vh; padding: 7rem 3rem 5rem;
       background:
-        radial-gradient(circle at 80% 30%, rgba(200,16,46,0.18), transparent 50%),
+        radial-gradient(circle at 90% 20%, rgba(200,16,46,0.1), transparent 50%),
         linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
     }
-    .subhero::before {
-      content: ''; position: absolute; inset: 0;
-      background-image: url("images/interior-1.jpg");
-      background-size: cover; background-position: center;
-      opacity: .35; filter: contrast(1.05) brightness(.7);
+    .donna-header {
+      text-align: center; max-width: 720px; margin: 0 auto 3.5rem;
     }
-    .subhero::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(90deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.55) 60%, rgba(10,10,10,0.2) 100%);
-    }
-    .subhero-inner { position: relative; z-index: 2; max-width: 1300px; margin: 0 auto; width: 100%; }
-    .subhero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 6vw, 5rem); line-height: 1.05;
-      font-weight: 500; margin-bottom: 1.25rem; color: var(--bone);
-    }
-    .subhero h1 em { color: var(--diavolo); font-style: italic; }
-    .subhero p {
-      max-width: 580px; color: rgba(245,241,236,0.78);
-      font-size: 1.1rem; line-height: 1.7; font-weight: 300;
-    }
-    .breadcrumb {
+    .donna-header .breadcrumb {
       font-size: .8rem; letter-spacing: .2em; text-transform: uppercase;
       color: var(--diavolo); margin-bottom: 1.25rem; font-weight: 500;
       display: inline-flex; align-items: center; gap: .75rem;
     }
-    .breadcrumb a { color: var(--muted); transition: color .25s; }
-    .breadcrumb a:hover { color: var(--bone); }
-    .breadcrumb::before { content: ''; width: 32px; height: 1px; background: var(--diavolo); }
+    .donna-header .breadcrumb a { color: var(--muted); transition: color .25s; }
+    .donna-header .breadcrumb a:hover { color: var(--bone); }
+    .donna-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5.5vw, 4.5rem); line-height: 1.05;
+      font-weight: 500; margin-bottom: 1rem; color: var(--bone);
+    }
+    .donna-header h1 em { color: var(--diavolo); font-style: italic; }
+    .donna-header p {
+      color: var(--muted); font-size: 1.05rem; line-height: 1.7;
+    }
+
+    .donna-grid {
+      max-width: 1300px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.15fr; gap: 3.5rem;
+      align-items: start;
+    }
+    .donna-photo {
+      position: sticky; top: 6rem;
+      aspect-ratio: 1/1; overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    }
+    .donna-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 1s ease;
+    }
+    .donna-photo:hover img { transform: scale(1.04); }
+    .donna-photo .photo-tag {
+      position: absolute; top: 1.5rem; left: 1.5rem; z-index: 2;
+      display: inline-flex; align-items: center; gap: .65rem;
+      padding: .5rem 1rem; background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(10px); border: 1px solid var(--line);
+      font-size: .72rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--bone); font-weight: 500;
+    }
+    .donna-photo .photo-tag .dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--diavolo);
+    }
+
+    .donna-prices { }
+    .price-cat {
+      margin-bottom: 2.5rem;
+    }
+    .price-cat-title {
+      font-family: 'Playfair Display', serif; font-size: 1.5rem;
+      font-style: italic; color: var(--bone); margin-bottom: .75rem;
+      padding-bottom: .85rem; border-bottom: 1px solid var(--line);
+    }
+    .price-cat-title em { color: var(--diavolo); font-style: italic; }
+    .price-row {
+      display: grid; grid-template-columns: 30px 1fr auto; gap: 1rem;
+      align-items: center; padding: .9rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: all .25s; position: relative;
+    }
+    .price-row:last-child { border-bottom: none; }
+    .price-row::before {
+      content: ''; position: absolute; left: -1rem; top: 0; bottom: 0; width: 0;
+      background: var(--diavolo); transition: width .25s;
+    }
+    .price-row:hover::before { width: 3px; }
+    .price-row:hover { background: rgba(200,16,46,0.04); padding-left: .5rem; }
+    .price-row .num {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      color: var(--muted); font-size: .9rem;
+    }
+    .price-row .name {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
+      color: var(--bone); letter-spacing: .01em;
+    }
+    .price-row .price {
+      font-size: 1.05rem; color: var(--diavolo); font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+    .price-row .price small {
+      color: var(--muted); font-size: .7rem; font-weight: 400;
+    }
+
+    .donna-cta {
+      margin-top: 3rem; padding-top: 2.5rem;
+      border-top: 1px solid var(--line);
+      display: flex; gap: .75rem; flex-wrap: wrap;
+    }
+    .donna-cta .btn { flex: 1; min-width: 200px; justify-content: center; }
+
     @media (max-width: 980px) {
-      .subhero { padding: 6rem 1.5rem 3rem; min-height: auto; }
+      .donna-page { padding: 6rem 1.25rem 3rem; }
+      .donna-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .donna-photo { position: static; aspect-ratio: 4/3; }
+      .donna-header { margin-bottom: 2.5rem; }
+      .price-cat { margin-bottom: 2rem; }
+      .price-row .name { font-size: 1.05rem; }
+      .donna-cta .btn { flex: 1 1 100%; }
     }
   </style>
 </head>
@@ -70,65 +140,68 @@
     </button>
   </nav>
 
-  <!-- SUBHERO -->
-  <header class="subhero">
-    <div class="subhero-inner">
+  <main class="donna-page">
+    <div class="donna-header">
       <div class="breadcrumb">
         <a href="index.html">Home</a> <span style="color: var(--muted);">/</span> <span>Parrucchiere Donna</span>
       </div>
       <h1>Parrucchiere <em>Donna</em></h1>
       <p>Taglio, piega, colore, balayage, ricostruzione Olaplex, cheratina disciplinante. Ogni servizio è studiato sulla tua chioma — risultato sartoriale, fatto a mano e su misura.</p>
     </div>
-  </header>
 
-  <!-- SERVICES -->
-  <section class="services" id="services">
-    <div class="container">
-      <div class="services-header reveal">
-        <div>
-          <div class="eyebrow">Listino prezzi · Donna</div>
-          <h2 class="section-title">I <em>servizi</em> per donna.</h2>
+    <div class="donna-grid">
+      <!-- PHOTO -->
+      <div class="donna-photo reveal" style="position: sticky; top: 6rem;">
+        <span class="photo-tag"><span class="dot"></span> In salone</span>
+        <img src="images/donna-hero.jpg" alt="Salone parrucchiere donna a Novoli — Un Diavolo per Capello"/>
+      </div>
+
+      <!-- PRICES -->
+      <div class="donna-prices">
+
+        <div class="price-cat reveal">
+          <div class="price-cat-title">Taglio &amp; <em>Piega</em></div>
+          <div class="price-row"><span class="num">01</span><span class="name">Piega senza piastra</span><span class="price">€ 14</span></div>
+          <div class="price-row"><span class="num">02</span><span class="name">Piega con piastra</span><span class="price">€ 15</span></div>
+          <div class="price-row"><span class="num">03</span><span class="name">Pettinata</span><span class="price">€ 7</span></div>
+          <div class="price-row"><span class="num">04</span><span class="name">Taglio e piega</span><span class="price">€ 30</span></div>
         </div>
-        <p style="max-width: 360px; color: var(--muted);">Tariffe trasparenti per ogni servizio. Le lavorazioni di colore e balayage variano in base alla lunghezza e allo spessore del capello.</p>
-      </div>
 
-      <div class="services-grid">
-        <div class="service-cat-title">Taglio &amp; <em>Piega</em></div>
-        <div class="service-row reveal"><span class="num">01</span><span class="name">Piega senza piastra</span><span class="price">€ 14</span></div>
-        <div class="service-row reveal"><span class="num">02</span><span class="name">Piega con piastra</span><span class="price">€ 15</span></div>
-        <div class="service-row reveal"><span class="num">03</span><span class="name">Pettinata</span><span class="price">€ 7</span></div>
-        <div class="service-row reveal"><span class="num">04</span><span class="name">Taglio e piega</span><span class="price">€ 30</span></div>
+        <div class="price-cat reveal">
+          <div class="price-cat-title">Colore &amp; <em>Balayage</em></div>
+          <div class="price-row"><span class="num">05</span><span class="name">Colpi di sole</span><span class="price">da € 60 <small>in su</small></span></div>
+          <div class="price-row"><span class="num">06</span><span class="name">Balayage corto</span><span class="price">€ 65</span></div>
+          <div class="price-row"><span class="num">07</span><span class="name">Balayage medio</span><span class="price">€ 75</span></div>
+          <div class="price-row"><span class="num">08</span><span class="name">Balayage lungo</span><span class="price">€ 85</span></div>
+          <div class="price-row"><span class="num">09</span><span class="name">Colore + piega</span><span class="price">€ 35</span></div>
+          <div class="price-row"><span class="num">10</span><span class="name">Colore + piega senza ammoniaca</span><span class="price">€ 37</span></div>
+          <div class="price-row"><span class="num">11</span><span class="name">Pulizia colore</span><span class="price">€ 25</span></div>
+          <div class="price-row"><span class="num">12</span><span class="name">Tonalizzante</span><span class="price">€ 10</span></div>
+          <div class="price-row"><span class="num">13</span><span class="name">Pigmenti</span><span class="price">€ 7</span></div>
+          <div class="price-row"><span class="num">14</span><span class="name">Maschera colorata</span><span class="price">€ 5</span></div>
+        </div>
 
-        <div class="service-cat-title">Colore &amp; <em>Balayage</em></div>
-        <div class="service-row reveal"><span class="num">05</span><span class="name">Colpi di sole</span><span class="price">da € 60 <small>in su</small></span></div>
-        <div class="service-row reveal"><span class="num">06</span><span class="name">Balayage corto</span><span class="price">€ 65</span></div>
-        <div class="service-row reveal"><span class="num">07</span><span class="name">Balayage medio</span><span class="price">€ 75</span></div>
-        <div class="service-row reveal"><span class="num">08</span><span class="name">Balayage lungo</span><span class="price">€ 85</span></div>
-        <div class="service-row reveal"><span class="num">09</span><span class="name">Colore + piega</span><span class="price">€ 35</span></div>
-        <div class="service-row reveal"><span class="num">10</span><span class="name">Colore + piega senza ammoniaca</span><span class="price">€ 37</span></div>
-        <div class="service-row reveal"><span class="num">11</span><span class="name">Pulizia colore</span><span class="price">€ 25</span></div>
-        <div class="service-row reveal"><span class="num">12</span><span class="name">Tonalizzante</span><span class="price">€ 10</span></div>
-        <div class="service-row reveal"><span class="num">13</span><span class="name">Pigmenti</span><span class="price">€ 7</span></div>
-        <div class="service-row reveal"><span class="num">14</span><span class="name">Maschera colorata</span><span class="price">€ 5</span></div>
+        <div class="price-cat reveal">
+          <div class="price-cat-title">Cura &amp; <em>Ricostruzione</em></div>
+          <div class="price-row"><span class="num">15</span><span class="name">Sostegno + taglio</span><span class="price">€ 65</span></div>
+          <div class="price-row"><span class="num">16</span><span class="name">Disciplinante cheratina</span><span class="price">€ 130</span></div>
+          <div class="price-row"><span class="num">17</span><span class="name">Ricostruzione + piega</span><span class="price">€ 45</span></div>
+          <div class="price-row"><span class="num">18</span><span class="name">Trattamento Olaplex</span><span class="price">su richiesta</span></div>
+        </div>
 
-        <div class="service-cat-title">Cura &amp; <em>Ricostruzione</em></div>
-        <div class="service-row reveal"><span class="num">15</span><span class="name">Sostegno + taglio</span><span class="price">€ 65</span></div>
-        <div class="service-row reveal"><span class="num">16</span><span class="name">Disciplinante cheratina</span><span class="price">€ 130</span></div>
-        <div class="service-row reveal"><span class="num">17</span><span class="name">Ricostruzione + piega</span><span class="price">€ 45</span></div>
-        <div class="service-row reveal"><span class="num">18</span><span class="name">Trattamento Olaplex</span><span class="price">su richiesta</span></div>
-      </div>
+        <div class="donna-cta reveal">
+          <a href="https://www.barberapp.it/" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+            Prenota su BarberApp
+          </a>
+          <a href="https://wa.me/393807430116?text=Ciao%2C%20vorrei%20prenotare%20un%20servizio%20donna" target="_blank" rel="noopener" class="btn btn-ghost">
+            Scrivi su WhatsApp
+          </a>
+        </div>
 
-      <div style="display: flex; gap: .75rem; flex-wrap: wrap; justify-content: center; margin-top: 4rem;">
-        <a href="https://www.barberapp.it/" target="_blank" rel="noopener" class="btn btn-primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
-          Prenota su BarberApp
-        </a>
-        <a href="https://wa.me/393807430116?text=Ciao%2C%20vorrei%20prenotare%20un%20servizio%20donna" target="_blank" rel="noopener" class="btn btn-ghost">
-          Scrivi su WhatsApp
-        </a>
       </div>
     </div>
-  </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
